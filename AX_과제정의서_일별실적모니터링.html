@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AX 과제정의서 | 온라인 카드 발급 일별 실적 모니터링</title>
+  <style>
+    :root { --navy:#17365d; --blue:#2f75b5; --pale:#eaf2f8; --line:#cbd6e2; --text:#1f2937; --muted:#5b6777; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#f4f7fa; color:var(--text); font-family:"Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif; line-height:1.7; }
+    main { width:min(960px, calc(100% - 40px)); margin:40px auto 64px; background:#fff; box-shadow:0 4px 20px rgba(20,45,76,.10); }
+    header { padding:42px 52px 34px; color:#fff; background:linear-gradient(135deg, var(--navy), var(--blue)); }
+    h1 { margin:0 0 8px; font-size:30px; letter-spacing:-.04em; }
+    .subtitle { margin:0; opacity:.88; font-size:15px; }
+    section { padding:30px 52px; border-bottom:1px solid var(--line); }
+    section:last-child { border-bottom:0; }
+    h2 { display:flex; align-items:center; gap:10px; margin:0 0 16px; color:var(--navy); font-size:20px; letter-spacing:-.03em; }
+    h2 span { display:inline-grid; place-items:center; width:26px; height:26px; background:var(--blue); color:#fff; border-radius:50%; font-size:13px; }
+    p { margin:0; }
+    ul { margin:0; padding-left:20px; }
+    li + li { margin-top:5px; }
+    .tag { display:inline-block; margin:0 6px 6px 0; padding:3px 10px; border-radius:16px; color:var(--navy); background:var(--pale); font-size:13px; font-weight:700; }
+    .flow { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin-top:6px; }
+    .step { position:relative; min-height:120px; padding:16px 14px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .step strong { display:block; color:var(--blue); font-size:13px; }
+    .step p { margin-top:7px; font-size:14px; line-height:1.55; }
+    .arrow { display:none; }
+    .note { padding:16px 18px; border-left:4px solid var(--blue); background:var(--pale); color:#243b53; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .card { padding:18px; border:1px solid var(--line); border-radius:8px; }
+    .card h3 { margin:0 0 10px; color:var(--navy); font-size:16px; }
+    .source { margin-top:20px; color:var(--muted); font-size:12px; }
+    @media (max-width:720px) { main { width:100%; margin:0; } header, section { padding:28px 24px; } .flow, .two-col { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AX 과제정의서</h1>
+      <p class="subtitle">Digital채널마케팅팀 · 온라인 카드 발급 일별 실적 모니터링</p>
+    </header>
+
+    <section>
+      <h2><span>1</span>과제명</h2>
+      <p><strong>AI 기반 온라인 카드 발급 일별 실적 분석·요약 및 월마감 예상 지원</strong></p>
+    </section>
+
+    <section>
+      <h2><span>2</span>현재 업무 및 프로세스</h2>
+      <p style="margin-bottom:14px;">신규회원 모집 확대(Digital Franchise 확장)라는 조직 목표에 따라, 온라인 마케팅 채널을 통한 카드 모집 실적을 관리·비교하고 온라인 카드 발급의 일별 목표 및 예상 대비 실적을 모니터링한다.</p>
+      <div class="flow">
+        <div class="step"><strong>1단계 · 데이터 추출·확인</strong><p>사내 데이터 분석 시스템(SQL)에서 발급 데이터를 추출하고 정합성 및 변동성을 확인한다.</p></div>
+        <div class="step"><strong>2단계 · 데이터 가공</strong><p>엑셀의 VLOOKUP과 피벗을 활용해 채널별·상품별 발급 실적과 전월 영업일·공휴일 차이를 가공한다.</p></div>
+        <div class="step"><strong>3단계 · 대시보드 작성</strong><p>가공한 수치를 기반으로 엑셀 대시보드를 완성한다.</p></div>
+        <div class="step"><strong>4단계 · 공유</strong><p>보고용 채널별·상품별 및 영업일·공휴일 전월비 엑셀 대시보드를 아웃룩 이메일로 공유한다.</p></div>
+      </div>
+      <p class="source">Input: 사내 DW 시스템에서 쿼리로 추출하는 발급 데이터(CSV) · Output: 보고용 엑셀 대시보드 및 이메일 공유</p>
+    </section>
+
+    <section>
+      <h2><span>3</span>Pain Point</h2>
+      <div class="note">원천 데이터 검증 및 신규 계리 구분 요청이 있을 때마다 대시보드와 쿼리를 수정하는 반복 작업이 발생한다.</div>
+      <ul style="margin-top:14px;">
+        <li><strong>과부하:</strong> 원천 데이터의 정합성과 변동성을 검증해야 하며, 신규 계리 구분 요청에 대응하는 수정 작업이 반복된다.</li>
+        <li><strong>수작업 가공:</strong> 채널별·상품별 실적과 영업일·공휴일 차이를 엑셀 VLOOKUP 및 피벗으로 가공해 대시보드를 만든다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span>4</span>개선 필요성</h2>
+      <p>모집 액션별 일별 발급을 관리하고 빠른 의사결정에 활용하기 위해 이 업무가 필요하다. 다만 반복적인 데이터 검증·가공·수정에 시간이 투입되므로, 변동이 있었던 채널을 중심으로 실적을 빠르게 해석하고 월마감 예상까지 연결할 수 있도록 지원이 필요하다.</p>
+    </section>
+
+    <section>
+      <h2><span>5</span>과제 목표</h2>
+      <ul>
+        <li>매주 월요일 아침, 원천 데이터를 분석해 변동성이 있었던 채널 중심의 코멘트를 자동으로 작성한다.</li>
+        <li>과거 발급 데이터를 활용한 시뮬레이션으로 월마감 예상 산출을 지원한다.</li>
+        <li>관리자 페이지의 이벤트 코드와 상품 간 매핑을 실행하고 누락 여부를 확인한다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span>6</span>AI 적용 방향</h2>
+      <p>
+        <span class="tag">진단·분석</span>
+        <span class="tag">요약</span>
+        <span class="tag">생성</span>
+        <span class="tag">예측</span>
+        <span class="tag">자동화</span>
+      </p>
+      <ul style="margin-top:10px;">
+        <li>발급 데이터를 분석하여 변동성이 있었던 채널을 식별하고, 주간 보고용 코멘트를 요약·생성한다.</li>
+        <li>과거 데이터 기반 발급 시뮬레이션으로 월마감 예상 산출을 지원한다.</li>
+        <li>이벤트 코드와 상품의 매핑 및 누락 여부 확인을 자동화한다.</li>
+      </ul>
+      <p class="source">보안 조건: AI의 출력값에는 고객 개인정보가 포함되지 않아야 한다.</p>
+    </section>
+
+    <section>
+      <h2><span>7</span>To-Be 프로세스</h2>
+      <div class="flow">
+        <div class="step"><strong>1단계 · 데이터 입력</strong><p>사내 DW에서 추출한 발급 데이터(CSV)를 분석 대상으로 준비한다.</p></div>
+        <div class="step"><strong>2단계 · AI 분석·점검</strong><p>채널별 변동성을 분석하고 이벤트 코드·상품 매핑 및 누락 여부를 확인한다.</p></div>
+        <div class="step"><strong>3단계 · 예상·코멘트 생성</strong><p>과거 데이터를 바탕으로 월마감 예상 산출을 지원하고 변동 채널 중심의 코멘트를 작성한다.</p></div>
+        <div class="step"><strong>4단계 · 검토·공유</strong><p>담당자가 결과를 검토한 후 보고용 엑셀 대시보드와 함께 이메일로 공유한다.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span>8</span>기대 효과</h2>
+      <ul>
+        <li>변동성이 있었던 채널 중심으로 실적을 빠르게 파악하고 의사결정에 활용할 수 있다.</li>
+        <li>원천 데이터 검증, 신규 계리 구분 요청에 따른 수정, 이벤트 코드·상품 매핑 확인의 반복 부담을 줄일 수 있다.</li>
+        <li>월마감 예상 산출을 통해 일별 실적 관리의 활용도를 높일 수 있다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span>9</span>PoC 범위</h2>
+      <div class="two-col">
+        <div class="card"><h3>대상 데이터</h3><p>사내 DW 시스템에서 쿼리로 추출한 온라인 카드 발급 데이터(CSV)</p></div>
+        <div class="card"><h3>검증 기능</h3><p>채널별 변동성 분석, 변동 채널 중심의 주간 코멘트 작성, 과거 데이터 기반 월마감 예상 산출 지원, 이벤트 코드·상품 매핑 및 누락 여부 확인</p></div>
+        <div class="card"><h3>산출물</h3><p>보고용 채널별·상품별 및 영업일·공휴일 전월비 엑셀 대시보드에 활용할 분석 결과와 코멘트</p></div>
+        <div class="card"><h3>필수 제약</h3><p>AI 출력값에서 고객 개인정보를 제외한다.</p></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
